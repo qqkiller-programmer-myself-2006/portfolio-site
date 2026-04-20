@@ -1,0 +1,88 @@
+{
+  "categories": [
+    { "id": "all",    "labelTh": "ทั้งหมด",      "labelEn": "All" },
+    { "id": "web",    "labelTh": "เว็บไซต์",      "labelEn": "Website" },
+    { "id": "mobile", "labelTh": "แอปมือถือ",     "labelEn": "Mobile" },
+    { "id": "system", "labelTh": "ระบบ Custom",    "labelEn": "System" }
+  ],
+  "works": [
+    {
+      "id": "1",
+      "titleTh": "Link in Bio Template",
+      "titleEn": "Link in Bio Template",
+      "descTh": "หน้า Link in Bio config-driven สำหรับ influencer และร้านค้า รองรับภาษาไทย/อังกฤษ",
+      "descEn": "Config-driven Link in Bio page for influencers and shops. Bilingual support.",
+      "category": "web",
+      "image": "/works/link-in-bio.jpg",
+      "tags": ["Next.js", "Tailwind", "TypeScript"],
+      "liveUrl": "https://linkinbio-demo.vercel.app",
+      "githubUrl": "https://github.com/qqkiller-programmer-myself-2006/link-in-bio",
+      "featured": true
+    },
+    {
+      "id": "2",
+      "titleTh": "QR Menu ร้านอาหาร",
+      "titleEn": "Restaurant QR Menu",
+      "descTh": "เมนู QR Code สำหรับร้านอาหาร แก้ไขผ่าน JSON ไม่ต้องมี backend",
+      "descEn": "QR Code menu for restaurants. Edit via JSON, zero backend needed.",
+      "category": "web",
+      "image": "/works/qr-menu.jpg",
+      "tags": ["Next.js", "Tailwind", "Static"],
+      "liveUrl": "https://qrmenu-demo.vercel.app",
+      "githubUrl": "https://github.com/qqkiller-programmer-myself-2006/qr-menu",
+      "featured": true
+    },
+    {
+      "id": "3",
+      "titleTh": "Invoice Generator",
+      "titleEn": "Invoice Generator",
+      "descTh": "ระบบสร้างใบเสนอราคา / ใบแจ้งหนี้ พร้อม preview realtime และ export PDF",
+      "descEn": "Invoice & quotation generator with live preview and PDF export.",
+      "category": "system",
+      "image": "/works/invoice.jpg",
+      "tags": ["Next.js", "TypeScript", "LocalStorage"],
+      "liveUrl": "https://invoice-demo.vercel.app",
+      "githubUrl": "https://github.com/qqkiller-programmer-myself-2006/invoice-generator",
+      "featured": true
+    },
+    {
+      "id": "4",
+      "titleTh": "Landing Page Template",
+      "titleEn": "Landing Page Template",
+      "descTh": "Landing page ธุรกิจ พร้อม Contact Form, SEO, 2 themes สำเร็จรูป",
+      "descEn": "Business landing page with contact form, SEO, and 2 ready-made themes.",
+      "category": "web",
+      "image": "/works/landing.jpg",
+      "tags": ["Next.js", "Resend", "SEO"],
+      "liveUrl": "https://landing-demo.vercel.app",
+      "githubUrl": "https://github.com/qqkiller-programmer-myself-2006/landing-page",
+      "featured": false
+    },
+    {
+      "id": "5",
+      "titleTh": "Event / Wedding Page",
+      "titleEn": "Event / Wedding Page",
+      "descTh": "หน้า Event พร้อม Countdown, กำหนดการ, RSVP ส่งข้อมูลเข้า Google Sheets",
+      "descEn": "Event page with countdown, schedule, and RSVP via Google Sheets.",
+      "category": "web",
+      "image": "/works/event.jpg",
+      "tags": ["Next.js", "Google Sheets", "Framer Motion"],
+      "liveUrl": "https://event-demo.vercel.app",
+      "githubUrl": "https://github.com/qqkiller-programmer-myself-2006/event-page",
+      "featured": false
+    },
+    {
+      "id": "6",
+      "titleTh": "Linktree Clone + Analytics",
+      "titleEn": "Linktree Clone + Analytics",
+      "descTh": "Linktree clone พร้อม view counter Firebase และ analytics dashboard",
+      "descEn": "Linktree clone with Firebase view counter and analytics dashboard.",
+      "category": "web",
+      "image": "/works/linktree.jpg",
+      "tags": ["Next.js", "Firebase", "Framer Motion"],
+      "liveUrl": "https://linktree-demo.vercel.app",
+      "githubUrl": "https://github.com/qqkiller-programmer-myself-2006/linktree-clone",
+      "featured": false
+    }
+  ]
+}

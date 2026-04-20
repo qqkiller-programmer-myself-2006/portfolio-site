@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Sarabun', sans-serif;
+  background: #050510;
+  color: #f1f5f9;
+  overflow-x: hidden;
+}
+
+/* Mesh gradient background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 40% at 20% 20%, rgba(99,102,241,0.12), transparent),
+    radial-gradient(ellipse 50% 50% at 80% 70%, rgba(139,92,246,0.08), transparent),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(59,130,246,0.06), transparent);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section { @apply relative z-10 py-20 px-4; }
+.container { @apply max-w-5xl mx-auto; }
+.section-title {
+  @apply text-3xl font-bold text-center mb-12;
+  font-family: 'Prompt', sans-serif;
+}
+
+.glass {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  backdrop-filter: blur(10px);
+}
+
+/* Skill bar */
+.skill-bar {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  overflow: hidden;
+}
+.skill-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* Work card */
+.work-card {
+  @apply glass rounded-2xl overflow-hidden;
+  transition: transform 0.3s, border-color 0.3s;
+}
+.work-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(99,102,241,0.3);
+}
+
+/* Fade animations */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Nav */
+.nav-link {
+  @apply text-sm text-slate-400 hover:text-white transition-colors;
+}
