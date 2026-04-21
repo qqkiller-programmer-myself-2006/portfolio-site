@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { z } from "zod";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const getResend = () => new Resend(process.env.RESEND_API_KEY ?? "placeholder");
 const schema = z.object({
   name: z.string().min(2),
   email: z.string().email(),
@@ -12,6 +12,7 @@ const schema = z.object({
 export async function POST(req: NextRequest) {
   try {
     const data = schema.parse(await req.json());
+    const resend = getResend();
     await resend.emails.send({
       from: process.env.RESEND_FROM_EMAIL!,
       to: process.env.NOTIFY_EMAIL!,
