@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import profile from "@/profile.json";
@@ -11,7 +11,6 @@ const ThreeScene = dynamic(() => import("@/components/ThreeScene"), { ssr: false
 type Lang = "th" | "en";
 
 /* ── Intersection-observer scroll reveal ── */
-import { useRef } from "react";
 function useVisible(threshold = 0.12) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -401,10 +400,10 @@ export default function PortfolioPage() {
                 <div className="flex gap-2">
                   <a
                     href={work.liveUrl} target="_blank" rel="noopener noreferrer"
-                    className="text-xs px-3 py-1.5 rounded-lg text-white font-medium hover:opacity-88 transition-opacity shadow-sm"
+                    className="text-xs px-3 py-1.5 rounded-lg text-white font-medium hover:opacity-90 transition-opacity shadow-sm"
                     style={{ background: "linear-gradient(135deg,#7BB8CC,#6ABFA0)" }}
                   >
-                    Demo →
+                    Demo&nbsp;→
                   </a>
                   <a
                     href={work.githubUrl} target="_blank" rel="noopener noreferrer"

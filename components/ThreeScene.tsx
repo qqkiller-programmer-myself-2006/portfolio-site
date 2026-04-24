@@ -20,8 +20,9 @@ export default function ThreeScene() {
     const mount = mountRef.current;
     if (!mount) return;
 
-    const w = mount.clientWidth;
-    const h = mount.clientHeight;
+    const w = mount.clientWidth || window.innerWidth;
+    const h = mount.clientHeight || window.innerHeight;
+    if (w === 0 || h === 0) return;
 
     /* ── Renderer ── */
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
