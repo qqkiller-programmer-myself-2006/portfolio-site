@@ -5,75 +5,114 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+:root {
+  --cream:      #F8F5F0;
+  --cream-mint: #EEF7F5;
+  --cream-lav:  #F0EEF7;
+  --blue:       #A8D5E2;
+  --blue-deep:  #5B9DB8;
+  --mint:       #B8E0C8;
+  --mint-deep:  #4AA87A;
+  --text:       #2D2D2D;
+  --muted:      #7A8EA0;
+  --glass:      rgba(255,255,255,0.72);
+  --glass-b:    rgba(168,213,226,0.32);
+}
+
 body {
   font-family: 'Sarabun', sans-serif;
-  background: #050510;
-  color: #f1f5f9;
+  background: var(--cream);
+  color: var(--text);
   overflow-x: hidden;
 }
 
-/* Mesh gradient background */
+/* Soft ambient blobs fixed behind everything */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(ellipse 70% 40% at 20% 20%, rgba(99,102,241,0.12), transparent),
-    radial-gradient(ellipse 50% 50% at 80% 70%, rgba(139,92,246,0.08), transparent),
-    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(59,130,246,0.06), transparent);
+    radial-gradient(ellipse 55% 38% at 8%  12%, rgba(168,213,226,0.22), transparent),
+    radial-gradient(ellipse 48% 44% at 88% 82%, rgba(184,224,200,0.18), transparent),
+    radial-gradient(ellipse 50% 32% at 52% 52%, rgba(196,183,232,0.10), transparent);
   pointer-events: none;
   z-index: 0;
 }
 
-.section { @apply relative z-10 py-20 px-4; }
-.container { @apply max-w-5xl mx-auto; }
+/* ── Layout ──────────────────────────────────────────────── */
+.section    { @apply relative z-10 py-20 px-4; }
+.container  { @apply max-w-5xl mx-auto; }
+
 .section-title {
   @apply text-3xl font-bold text-center mb-12;
   font-family: 'Prompt', sans-serif;
+  color: var(--text);
+  letter-spacing: -0.02em;
 }
 
+/* ── Glass card ──────────────────────────────────────────── */
 .glass {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.07);
-  backdrop-filter: blur(10px);
+  background: var(--glass);
+  border: 1px solid var(--glass-b);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
-/* Skill bar */
+/* ── Skill bar ───────────────────────────────────────────── */
 .skill-bar {
-  height: 6px;
+  height: 5px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.06);
+  background: rgba(168,213,226,0.22);
   overflow: hidden;
 }
 .skill-fill {
   height: 100%;
   border-radius: 999px;
-  background: linear-gradient(90deg, #6366f1, #8b5cf6);
-  transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+  background: linear-gradient(90deg, #7BB8CC, #6ABFA0);
+  transition: width 1.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Work card */
+/* ── Work card ───────────────────────────────────────────── */
 .work-card {
   @apply glass rounded-2xl overflow-hidden;
-  transition: transform 0.3s, border-color 0.3s;
+  box-shadow: 0 4px 20px rgba(90,157,184,0.07);
+  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1),
+              box-shadow 0.35s ease;
 }
 .work-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(99,102,241,0.3);
+  transform: translateY(-7px);
+  box-shadow: 0 14px 40px rgba(90,157,184,0.16);
 }
 
-/* Fade animations */
+/* ── Fade animations ─────────────────────────────────────── */
 .fade-up {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(28px);
+  transition: opacity 0.72s ease, transform 0.72s cubic-bezier(0.34,1.2,0.64,1);
 }
 .fade-up.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Nav */
+/* ── Nav link ────────────────────────────────────────────── */
 .nav-link {
-  @apply text-sm text-slate-400 hover:text-white transition-colors;
+  font-size: 0.875rem;
+  color: var(--muted);
+  transition: color 0.2s;
 }
+.nav-link:hover { color: var(--blue-deep); }
+
+/* ── Avatar spinning rings ───────────────────────────────── */
+@keyframes spin-slow    { to { transform: rotate(360deg); } }
+@keyframes spin-reverse { to { transform: rotate(-360deg); } }
+
+.ring-slow    { animation: spin-slow    22s linear infinite; }
+.ring-reverse { animation: spin-reverse 34s linear infinite; }
+
+/* ── Scroll caret bounce ─────────────────────────────────── */
+@keyframes caret-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(5px); }
+}
+.caret-bounce { animation: caret-bounce 1.6s ease-in-out infinite; }
