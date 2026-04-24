@@ -120,9 +120,11 @@ export default function PortfolioPage() {
 
   /* GSAP entrance animation for hero elements */
   useEffect(() => {
-    let ctx: { revert?: () => void } = {};
+    let cancelled = false;
+    let kill: (() => void) | undefined;
     (async () => {
       const gsap = (await import("gsap")).default;
+      if (cancelled) return;
       const tl = gsap.timeline({ delay: 0.15 });
       tl.fromTo(".gsap-badge",  { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.5 })
         .fromTo(".gsap-title",  { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.65 }, "-=0.25")
@@ -131,9 +133,9 @@ export default function PortfolioPage() {
         .fromTo(".gsap-stats",  { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5 },  "-=0.25")
         .fromTo(".gsap-ctas",   { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45 }, "-=0.2")
         .fromTo(".gsap-avatar", { opacity: 0, scale: 0.82 }, { opacity: 1, scale: 1, duration: 0.75, ease: "back.out(1.4)" }, "-=0.55");
-      ctx = { revert: () => tl.kill() };
+      kill = () => tl.kill();
     })();
-    return () => ctx.revert?.();
+    return () => { cancelled = true; kill?.(); };
   }, []);
 
   /* ─────────────────────────────────────────────── */

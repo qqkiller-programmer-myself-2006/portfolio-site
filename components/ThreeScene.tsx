@@ -24,6 +24,9 @@ export default function ThreeScene() {
     const h = mount.clientHeight || window.innerHeight;
     if (w === 0 || h === 0) return;
 
+    /* Skip animation for users who prefer reduced motion */
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
     /* ── Renderer ── */
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(w, h);
@@ -153,6 +156,7 @@ export default function ThreeScene() {
     const onResize = () => {
       const nw = mount.clientWidth;
       const nh = mount.clientHeight;
+      if (!nw || !nh) return;
       camera.aspect = nw / nh;
       camera.updateProjectionMatrix();
       renderer.setSize(nw, nh);
