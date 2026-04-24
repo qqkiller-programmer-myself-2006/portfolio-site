@@ -10,11 +10,14 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@types/three": "^0.184.0",
     "googleapis": "^140.0.0",
+    "gsap": "^3.15.0",
     "next": "14.2.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "resend": "^3.5.0",
+    "three": "^0.184.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
